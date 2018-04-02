@@ -7,13 +7,13 @@ import { ThemeProvider, themes } from 'modules/core/styles';
 import { Bubble } from 'modules/chat/components/bubble';
 
 const Button = styled.button`
-    display: block
-    background: cyan
-    padding: 8px 12px
-    font-size: 16px
-    color: #fff
-    border: 0
-    min-width: 120px
+    display: block;
+    background: cyan;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #fff;
+    border: 0;
+    min-width: 120px;
 `;
 
 class Index extends Component {
