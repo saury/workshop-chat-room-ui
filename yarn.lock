@@ -61,7 +61,14 @@
   version "9.6.1"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-9.6.1.tgz#e2d374ef15b315b48e7efc308fa1a7cd51faa06c"
 
-"@types/react@*":
+"@types/react-dom@^16.0.4":
+  version "16.0.4"
+  resolved "http://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.0.4.tgz#2e8fd45f5443780ed49bf2cdd9809e6091177a7d"
+  dependencies:
+    "@types/node" "*"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^16.1.0":
   version "16.1.0"
   resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.1.0.tgz#6c0e9955ce73f332b4a1948d45decaf18c764c6e"
 
