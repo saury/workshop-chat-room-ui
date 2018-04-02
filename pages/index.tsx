@@ -2,9 +2,10 @@ import Head from 'next/head';
 import { Component } from 'react';
 import styled from 'styled-components';
 
+import { App } from 'modules/app';
 import { ThemeProvider, themes } from 'modules/core/styles';
 
-import { Bubble } from 'modules/chat/components/bubble';
+import { Bubble } from 'modules/chat/components/Bubble';
 
 const Button = styled.button`
     display: block;
@@ -20,7 +21,7 @@ class Index extends Component {
     public render() {
         return (
             <ThemeProvider theme={themes.normal}>
-                <div>
+                <App>
                     <Head>
                         <title>index page title</title>
                     </Head>
@@ -54,7 +55,7 @@ class Index extends Component {
                         </div>
                         <Button>Send</Button>
                     </div>
-                </div>
+                </App>
             </ThemeProvider>
         );
     }
