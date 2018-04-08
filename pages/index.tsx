@@ -6,6 +6,7 @@ import { App } from 'modules/app';
 import { ThemeProvider, themes } from 'modules/core/styles';
 
 import { Bubble } from 'modules/chat/components/Bubble';
+import { BubbleLeft } from 'modules/chat/components/Bubble/BubbleLeft';
 
 const Button = styled.button`
     display: block;
@@ -27,7 +28,7 @@ class Index extends Component {
                     </Head>
                     <div>
                         <p>Tom:</p>
-                        <Bubble content="Stupid ass" className="left" />
+                        <BubbleLeft content="haha" tail />
                     </div>
                     <div style={{ textAlign: 'right' }}>
                         <p>Me:</p>
@@ -38,7 +39,6 @@ class Index extends Component {
                             border: '1px solid cyan',
                             borderRadius: '4px',
                             display: 'flex',
-                            margin: '20px 0',
                             overflow: 'hidden',
                         }}
                     >

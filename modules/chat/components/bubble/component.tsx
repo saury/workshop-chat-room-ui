@@ -1,4 +1,4 @@
-import styled /* Theme */ from 'modules/core/styles';
+import { styled /* Theme */ } from 'modules/core/styles';
 
 const Container = styled.div`
     background: ${({ theme }) => theme.colorPrimary};
