@@ -1,4 +1,4 @@
-# WORKSHOP - CHAT ROOM
+# WORKSHOP - CHAT ROOM - FRONT END PART
 
 > Building a whole app from scratch with a NodeJS API written in TypeScript and a ReactJS front-end, also written in
 > TypeScript. Will deploy both of them to AWS ECS and will automate builds and deployments using Jenkins, Docker,
