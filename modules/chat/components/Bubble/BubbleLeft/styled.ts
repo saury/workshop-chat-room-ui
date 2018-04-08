@@ -1,4 +1,4 @@
-import { styled } from '../../../../core/styles';
+import { styled } from 'modules/core/styles';
 
 import { Component } from './component';
 
@@ -17,7 +17,6 @@ export const Styled = styled(Component)`
         margin: 0 ${(props) => props.theme.sizeBubbleTail};
     }
     > i {
-        /* color: ${(props) => props.theme.colorBg}; */
         color: ${(props) => (props.from === 'left' ? props.theme.colorSecondary : props.theme.colorPrimary)};
         position: absolute;
         left: 0;
