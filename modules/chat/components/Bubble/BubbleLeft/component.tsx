@@ -2,11 +2,10 @@ import { PureComponent } from 'react';
 
 import { Icon } from 'modules/icons';
 
-import { Bubble } from '../index';
-
 import tailSvg from '../tail.svg';
 
 export interface Props {
+    from?: string;
     content: string;
     className?: string;
     type?: 'primary' | 'secondary';
@@ -19,11 +18,9 @@ class Component extends PureComponent<Props> {
 
     public render() {
         return (
-            <div className={this.props.className}
-            style={{marginTop: this.props.separation === 'big' ? '32px' : '8px'}}
-        >
+            <div data-type={this.props.from === 'left' ? 'primary' : 'secondary'} className={this.props.className}>
                 {!!this.props.tail && <Icon src={tailSvg} />}
-                <Bubble content={this.props.content} />
+                <div>{this.props.content}</div>
             </div>
         );
     }

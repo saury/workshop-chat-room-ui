@@ -1,13 +1,12 @@
-import { styled } from 'modules/core/styles';
+import { BubbleLeft } from './BubbleLeft';
+import { BubbleRight } from './BubbleRight';
 
-const Container = styled.div`
-    background: ${({ theme }) => theme.colorPrimary};
-    border-radius: ${({ theme }) => theme.sizeCornerBubble};
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    display: inline-block;
-    padding: ${({ theme }) => theme.sizeIn(-10)} ${({ theme }) => theme.sizeIn(-4)};
-    color: #666;
-    margin: 0 12px;
-`;
+export interface Props {
+    content: string;
+    from?: 'left' | 'right';
+    tail?: boolean;
+    separation?: 'big' | 'small';
+}
 
-export const Bubble = (props) => <Container className={props.className}>{props.content}</Container>;
+export const Bubble = (props: Props) =>
+    props.from === 'left' ? <BubbleLeft {...props} /> : <BubbleRight {...props} />;

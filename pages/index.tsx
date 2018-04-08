@@ -6,8 +6,8 @@ import { App } from 'modules/app';
 import { ThemeProvider, themes } from 'modules/core/styles';
 
 import { Bubble } from 'modules/chat/components/Bubble';
-import { BubbleLeft } from 'modules/chat/components/Bubble/BubbleLeft';
-import { BubbleRight } from 'modules/chat/components/Bubble/BubbleRight';
+// import { BubbleLeft } from 'modules/chat/components/Bubble/BubbleLeft';
+// import { BubbleRight } from 'modules/chat/components/Bubble/BubbleRight';
 
 const Button = styled.button`
     display: block;
@@ -27,14 +27,12 @@ class Index extends Component {
                     <Head>
                         <title>index page title</title>
                     </Head>
-                    <div>
-                        <BubbleLeft content="haha" tail />
-                        <BubbleLeft content="haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha " />
-                    </div>
-                    <div>
-                        <BubbleRight content="haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha" tail separation="big"/>
-                        <BubbleRight content="face" />
-                    </div>
+                    {/* bubbles start */}
+                    <Bubble from="left" tail content="ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha" />
+                    <Bubble from="left" content="ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha" />
+                    <Bubble tail separation="big" content="ha ha ha ha ha ha ha ha ha ha ha ha ha  ha ha ha" />
+                    <Bubble content="ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha" />
+                    {/* bubbles end */}
                     <div
                         style={{
                             border: '1px solid cyan',
