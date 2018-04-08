@@ -19,9 +19,11 @@ class Component extends PureComponent<Props> {
 
     public render() {
         return (
-            <div className={this.props.className}>
+            <div className={this.props.className}
+            style={{marginTop: this.props.separation === 'big' ? '32px' : '8px'}}
+        >
+                {!!this.props.tail && <Icon src={tailSvg} />}
                 <Bubble content={this.props.content} />
-                {this.props.tail && <Icon src={tailSvg} />}
             </div>
         );
     }

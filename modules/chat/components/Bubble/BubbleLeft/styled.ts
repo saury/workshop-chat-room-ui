@@ -4,16 +4,21 @@ import { Component } from './component';
 
 export const Styled = styled(Component)`
     position: relative;
+    margin: 8px 0;
     > div {
-        border-top-left-radius: 0;
-        background: #f2f2f2;
+        text-align: left;
+        background: ${(props) => props.theme.colorBg};
+        max-width: 80%;
     }
     > i {
-        color: #f2f2f2;
+        color: ${(props) => props.theme.colorBg};
         position: absolute;
         left: 0;
         top: 0;
         transform: rotateY(-180deg);
-        width: 12px;
+        width: ${(props) => props.theme.sizeBubbleTail};
+        + div {
+            border-top-left-radius: 0;
+        }
     }
 `;

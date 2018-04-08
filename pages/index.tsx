@@ -7,6 +7,7 @@ import { ThemeProvider, themes } from 'modules/core/styles';
 
 import { Bubble } from 'modules/chat/components/Bubble';
 import { BubbleLeft } from 'modules/chat/components/Bubble/BubbleLeft';
+import { BubbleRight } from 'modules/chat/components/Bubble/BubbleRight';
 
 const Button = styled.button`
     display: block;
@@ -27,12 +28,12 @@ class Index extends Component {
                         <title>index page title</title>
                     </Head>
                     <div>
-                        <p>Tom:</p>
                         <BubbleLeft content="haha" tail />
+                        <BubbleLeft content="haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha " />
                     </div>
-                    <div style={{ textAlign: 'right' }}>
-                        <p>Me:</p>
-                        <Bubble content="Dumb ass" className="left" />
+                    <div>
+                        <BubbleRight content="haha haha haha haha haha haha haha haha haha haha haha haha haha haha haha" tail separation="big"/>
+                        <BubbleRight content="face" />
                     </div>
                     <div
                         style={{
