@@ -1,1 +1,1 @@
-export { Component as Editor } from './component';
+export { Editor } from './styled';

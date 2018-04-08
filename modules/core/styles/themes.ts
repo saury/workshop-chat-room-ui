@@ -5,6 +5,7 @@ export const normal = {
     colorPrimary: 'lime',
     colorSecondary: 'indianred',
     colorTextBase: '#000',
+    editorHeight: '60px',
     fontBase: `-apple-system, "BlinkMacSystemFont", ".SFNSDisplay-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif`,
     shadow: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
     size,
