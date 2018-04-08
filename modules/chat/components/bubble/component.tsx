@@ -6,6 +6,7 @@ export interface Props {
     from?: 'left' | 'right';
     tail?: boolean;
     separation?: 'big' | 'small';
+    type?: 'primary' | 'secondary';
 }
 
 export const Bubble = (props: Props) =>

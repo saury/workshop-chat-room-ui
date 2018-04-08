@@ -1,8 +1,9 @@
-import { styled } from '../../../../core/styles';
+// import { styled } from '../../../../core/styles';
 
 import { BubbleLeft } from '../BubbleLeft/';
 
-export const Styled = styled(BubbleLeft)`
+// export const Styled = styled(BubbleLeft)`
+export const Styled = BubbleLeft.extend`
     text-align: right;
     > i {
         left: auto;

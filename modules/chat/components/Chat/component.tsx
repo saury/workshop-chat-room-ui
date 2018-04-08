@@ -3,11 +3,14 @@ import * as React from 'react';
 import { Conversation } from 'modules/chat/components/Conversation';
 import { Editor } from 'modules/chat/components/Editor';
 
-class Component extends React.Component {
-    public static displayName = 'Chat';
+interface Props {
+    className?: string;
+}
+
+class Chat extends React.Component<Props> {
     public render() {
         return (
-            <div>
+            <div className={this.props.className}>
                 <Conversation />
                 <Editor />
             </div>
@@ -15,4 +18,4 @@ class Component extends React.Component {
     }
 }
 
-export { Component };
+export { Chat };

@@ -18,7 +18,7 @@ class Component extends PureComponent<Props> {
 
     public render() {
         return (
-            <div data-type={this.props.from === 'left' ? 'primary' : 'secondary'} className={this.props.className}>
+            <div className={this.props.className}>
                 {!!this.props.tail && <Icon src={tailSvg} />}
                 <div>{this.props.content}</div>
             </div>

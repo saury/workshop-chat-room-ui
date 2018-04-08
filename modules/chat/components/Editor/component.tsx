@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 const Button = styled.button`
     display: block;
-    background: cyan;
+    background: limegreen;
     padding: 8px 12px;
     font-size: 16px;
     color: #fff;
     border: 0;
-    min-width: 120px;
+    min-width: 80px;
 `;
 
 class Component extends React.Component {
@@ -18,10 +18,13 @@ class Component extends React.Component {
         return (
             <div
                 style={{
-                    border: '1px solid cyan',
+                    border: '1px solid limegreen',
                     borderRadius: '4px',
+                    bottom: '0',
                     display: 'flex',
                     overflow: 'hidden',
+                    position: 'absolute',
+                    width: '100%',
                 }}
             >
                 <div style={{ flexGrow: 1, display: 'flex' }}>

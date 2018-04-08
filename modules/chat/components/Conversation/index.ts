@@ -1,1 +1,1 @@
-export { Component as Conversation } from './component';
+export { Conversation } from './styled';

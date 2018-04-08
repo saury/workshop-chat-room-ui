@@ -1,1 +1,1 @@
-export { Styled as Chat } from './styled';
+export { Chat } from './styled';

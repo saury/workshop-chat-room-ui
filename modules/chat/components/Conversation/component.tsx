@@ -14,12 +14,14 @@ for (let i = 0; i < 50; i += 1) {
     messages.push({ id: `${1000 + i}`, from: '2', message: 'Good, and you?' });
 }
 
-class Component extends React.Component {
-    public static displayName = 'Conversation';
+export interface Props {
+    className?: string;
+}
 
+class Conversation extends React.Component<Props> {
     public render() {
         return (
-            <div>
+            <div className={this.props.className}>
                 {messages.map((msg, index) => {
                     const isNewSender = msg.from !== (messages[index - 1] || {}).from;
                     const needSeparation = isNewSender && index !== 0;
@@ -31,6 +33,7 @@ class Component extends React.Component {
                             from={msg.from !== me.id ? 'left' : 'right'}
                             separation={needSeparation ? 'big' : 'small'}
                             tail={isNewSender}
+                            type={msg.from === me.id ? 'primary' : 'secondary'}
                         />
                     );
                 })}
@@ -39,4 +42,4 @@ class Component extends React.Component {
     }
 }
 
-export { Component };
+export { Conversation };

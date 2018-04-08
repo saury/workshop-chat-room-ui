@@ -1,23 +1,34 @@
-import { styled } from 'modules/core/styles';
+import { styled, ThemedProps } from 'modules/core/styles';
+
+import { Props } from './component';
 
 import { Component } from './component';
+
+const getBg = (props: ThemedProps<Props>) =>
+    !props.type || props.type === 'primary' ? props.theme.colorPrimary : props.theme.colorSecondary;
+
+// const getMarginBotton = ({ separation = false, theme }: ThemedProps<Props>) => {
+//     if (!separation) return '';
+//     if (separation === 'big') return theme.sizeBubbleTail;
+//     return `calc(${theme.sizeBubbleTail} / 2)`;
+// };
 
 export const Styled = styled(Component)`
     position: relative;
     margin: ${(props) => (props.separation === 'big' ? '1.4em' : '.5em')} 0 0.5em;
     > div {
         text-align: left;
-        background: ${(props) => (props.from === 'left' ? props.theme.colorSecondary : props.theme.colorPrimary)};
+        background: ${getBg};
         color: ${(props) => (props.from === 'left' ? '#fff' : '#666')};
         max-width: 80%;
         border-radius: ${(props) => props.theme.sizeCornerBubble};
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        box-shadow: ${(props) => props.theme.shadow};
         display: inline-block;
         padding: ${(props) => props.theme.sizeIn(-10)} ${(props) => props.theme.sizeIn(-4)};
         margin: 0 ${(props) => props.theme.sizeBubbleTail};
     }
     > i {
-        color: ${(props) => (props.from === 'left' ? props.theme.colorSecondary : props.theme.colorPrimary)};
+        color: ${getBg};
         position: absolute;
         left: 0;
         top: 0;
