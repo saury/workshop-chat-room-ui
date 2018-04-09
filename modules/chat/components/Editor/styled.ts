@@ -5,29 +5,27 @@ import { Editor as Component } from './component';
 export const Editor = styled(Component)`
     background: limegreen;
     border-radius: 4px;
-    flex-grow: 1;
-    display: flex;
     width: 100%;
-    flex-basis: 40px;
-    min-height: 40px;
-    max-height: 120px;
+    overflow: hidden;
     padding: ${(props) => props.theme.sizeIn(-10)};
-    > div {
-        display: flex;
+    display: flex;
+    align-items: center;
+    .input-box {
         flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        overflow: hidden;
+        overflow: auto;
+        > div {
+            background: #fff;
+        }
     }
     [contentEditable] {
-        display: inline-block;
-        min-height: 1em;
+        background: #fff;
+        display: block;
+        height: 100%;
+        overflow: hidden;
         min-width: 100%;
         border: 0;
         padding: ${(props) => props.theme.sizeIn(-10)};
         resize: none;
         outline: none;
-        flex-grow: 1;
     }
 `;
