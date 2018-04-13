@@ -12,7 +12,7 @@ class Index extends Component {
             <ThemeProvider theme={themes.normal}>
                 <App>
                     <Head>
-                        <title>index page title</title>
+                        <title>Wii chat</title>
                     </Head>
                     <Chat />
                 </App>
