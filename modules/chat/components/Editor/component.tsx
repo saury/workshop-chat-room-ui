@@ -1,6 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { Me } from 'modules/authentication';
+import { messageLoader } from 'modules/chat';
+
 const Button = styled.button`
     display: inline-block;
     background: limegreen;
@@ -13,6 +16,7 @@ const Button = styled.button`
 
 export interface Props {
     className?: string;
+    me: Me;
 }
 
 class Editor extends React.Component<Props, any> {
@@ -40,8 +44,15 @@ class Editor extends React.Component<Props, any> {
         if (!evt.shiftKey && evt.keyCode === 13) {
             evt.preventDefault();
             evt.stopPropagation();
-            // todo: send info
+            // tslint:disable-next-line:no-console
             console.log(`send info: ${target.innerHTML}`);
+            // send info
+            messageLoader.sendMessages({
+                message: target.innerHTML,
+                password: this.props.me.password,
+                username: this.props.me.username,
+            });
+
             target.innerHTML = '';
             this.onInputHandler(evt);
         }

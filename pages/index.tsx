@@ -2,32 +2,39 @@ import Head from 'next/head';
 import { Component } from 'react';
 
 import { App } from 'modules/app';
+
+import { authenticator, Me, MeContext } from 'modules/authentication';
+
 import { ThemeProvider, themes } from 'modules/core/styles';
 
 import { messageLoader, Messages, MessagesContext } from 'modules/chat';
 
 import { Chat } from 'modules/chat/components/Chat';
 
-class Index extends Component<{ messages: Messages[]; me?: any }, { messages: Messages[]; theme?: any }> {
-    public static async getInitialProps(ctx) {
-        debugger;
-        const messages = await messageLoader.fetchMessages({
+class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Messages[]; theme?: any }> {
+    public static async getInitialProps() // ctx
+    {
+        const me = await authenticator.signIn({
             password: '1234',
             username: '1234',
         });
-        return { messages };
+        const messages = await messageLoader.fetchMessages(me);
+        messages.sort((a, b) => a.sentAt.localeCompare(b.sentAt));
+        return { messages, me };
     }
 
-    public interval;
+    public state = { messages: this.props.messages };
+    public interval: NodeJS.Timer;
 
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     public componentWillMount() {
         this.interval = setInterval(() => {
             // tslint:disable-next-line:no-console
             console.warn('fetch msgs');
+            this.fetchMessages();
         }, 1000);
     }
 
@@ -44,13 +51,25 @@ class Index extends Component<{ messages: Messages[]; me?: any }, { messages: Me
                     <Head>
                         <title>Wii chat</title>
                     </Head>
-                    <MessagesContext.Provider value={this.props.messages}>
-                        <Chat />
-                    </MessagesContext.Provider>
+                    {!!this.props.me && (
+                        <MeContext.Provider value={this.props.me}>
+                            <MessagesContext.Provider value={this.state.messages}>
+                                <Chat />
+                            </MessagesContext.Provider>
+                        </MeContext.Provider>
+                    )}
+                    {this.props.me && <span>Login</span>}
                 </App>
             </ThemeProvider>
         );
     }
+
+    private fetchMessages = async () => {
+        if (!this.props.me) return;
+        const messages = await messageLoader.fetchMessages(this.props.me);
+        messages.sort((a, b) => a.sentAt.localeCompare(b.sentAt));
+        this.setState({ messages });
+    };
 }
 
 export default Index;
