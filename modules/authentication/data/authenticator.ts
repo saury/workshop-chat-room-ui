@@ -9,6 +9,7 @@ export const authenticator = {
             headers: { 'content-type': 'application/json' },
             method: 'post',
         });
+        if (!rawResponse.ok) throw new Error();
         return await rawResponse.json();
     },
     async signUp({ username, password }: { username: string; password: string }): Promise<Me> {
@@ -17,6 +18,7 @@ export const authenticator = {
             headers: { 'content-type': 'application/json' },
             method: 'post',
         });
+        if (!rawResponse.ok) throw new Error();
         return await rawResponse.json();
     },
 };

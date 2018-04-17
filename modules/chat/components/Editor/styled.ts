@@ -1,8 +1,8 @@
 import { styled } from 'modules/core/styles';
 
-import { Editor as Component } from './component';
-// todo: add style
-export const Editor = styled(Component)`
+import { Editor as Component, Props } from './component';
+// add Props for workaround to solve the type error
+export const Editor = styled<Props>(Component)`
     background: limegreen;
     border-radius: 4px;
     width: 100%;

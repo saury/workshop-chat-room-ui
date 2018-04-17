@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { Me } from 'modules/authentication';
 import { messageLoader } from 'modules/chat';
+import { styled } from 'modules/core/styles';
 
 const Button = styled.button`
     display: inline-block;
@@ -15,8 +15,8 @@ const Button = styled.button`
 `;
 
 export interface Props {
-    className?: string;
     me: Me;
+    className?: string;
 }
 
 class Editor extends React.Component<Props, any> {
@@ -44,8 +44,6 @@ class Editor extends React.Component<Props, any> {
         if (!evt.shiftKey && evt.keyCode === 13) {
             evt.preventDefault();
             evt.stopPropagation();
-            // tslint:disable-next-line:no-console
-            console.log(`send info: ${target.innerHTML}`);
             // send info
             messageLoader.sendMessages({
                 message: target.innerHTML,

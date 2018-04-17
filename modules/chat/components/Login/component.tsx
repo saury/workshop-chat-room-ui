@@ -1,7 +1,7 @@
 import cookie from 'js-cookie';
 import * as React from 'react';
 
-import { authenticator, Me, MeContext } from 'modules/authentication';
+import { authenticator } from 'modules/authentication';
 
 interface Props {
     className?: string;
