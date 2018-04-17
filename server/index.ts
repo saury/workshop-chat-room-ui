@@ -1,7 +1,6 @@
 import * as express from 'express';
 import * as next from 'next';
 
-import { logger } from '../modules/core/logger';
 import conf from '../next.config.js';
 
 const port = parseInt(process.env.PORT!, 10) || 3000;
@@ -14,6 +13,6 @@ app.prepare().then(() => {
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, () => {
-        logger.info(`> Ready on http://localhost:${port}`);
+        console.info(`> Ready on http://localhost:${port}`);
     });
 });
