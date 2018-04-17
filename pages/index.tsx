@@ -1,3 +1,5 @@
+import * as nCookie from 'next-cookies';
+
 import Head from 'next/head';
 import { Component } from 'react';
 
@@ -11,12 +13,15 @@ import { messageLoader, Messages, MessagesContext } from 'modules/chat';
 
 import { Chat } from 'modules/chat/components/Chat';
 
+import { Login } from 'modules/chat/components/Login';
+
 class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Messages[]; theme?: any }> {
-    public static async getInitialProps() // ctx
-    {
+    public static async getInitialProps(ctx) {
+        const { password, username } = nCookie(ctx);
+        if (!password || !username) return {};
         const me = await authenticator.signIn({
-            password: '1234',
-            username: '1234',
+            password,
+            username,
         });
         const messages = await messageLoader.fetchMessages(me);
         messages.sort((a, b) => a.sentAt.localeCompare(b.sentAt));
@@ -58,7 +63,7 @@ class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Mes
                             </MessagesContext.Provider>
                         </MeContext.Provider>
                     )}
-                    {this.props.me && <span>Login</span>}
+                    {!this.props.me && <Login />}
                 </App>
             </ThemeProvider>
         );
