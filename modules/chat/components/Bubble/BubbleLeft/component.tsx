@@ -20,7 +20,7 @@ class Component extends PureComponent<Props> {
         return (
             <div className={this.props.className}>
                 {!!this.props.tail && <Icon src={tailSvg} />}
-                <div>{this.props.content}</div>
+                <div dangerouslySetInnerHTML={{ __html: this.props.content }} />
             </div>
         );
     }
