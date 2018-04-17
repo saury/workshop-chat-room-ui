@@ -13,6 +13,7 @@ app.prepare().then(() => {
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, () => {
+        // tslint:disable-next-line:no-console
         console.info(`> Ready on http://localhost:${port}`);
     });
 });
