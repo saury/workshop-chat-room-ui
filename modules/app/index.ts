@@ -1,1 +1,2 @@
-export { ThemeApp as App } from './components/ThemeApp';
+export { App } from './components/App';
+export { ThemeBtn } from './components/ThemeBtn';

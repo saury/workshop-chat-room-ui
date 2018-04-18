@@ -3,7 +3,7 @@ import * as nCookie from 'next-cookies';
 import Head from 'next/head';
 import { Component } from 'react';
 
-import { App } from 'modules/app';
+import { App, ThemeBtn } from 'modules/app';
 
 import { authenticator, Me, MeContext } from 'modules/authentication';
 
@@ -28,7 +28,10 @@ class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Mes
         return { messages, me };
     }
 
-    public state = { messages: this.props.messages };
+    public state = {
+        messages: this.props.messages,
+        theme: 'normal',
+    };
     public interval: NodeJS.Timer;
 
     constructor(props) {
@@ -51,11 +54,19 @@ class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Mes
         // tslint:disable-next-line:no-console
         console.log(this.props.messages);
         return (
-            <ThemeProvider theme={themes.normal}>
+            <ThemeProvider theme={themes[this.state.theme]}>
                 <App>
                     <Head>
                         <title>Wii chat</title>
                     </Head>
+                    <ThemeBtn
+                        theme={this.state.theme}
+                        onClick={() => {
+                            this.setState({
+                                theme: this.state.theme === 'normal' ? 'night' : 'normal',
+                            });
+                        }}
+                    />
                     {!!this.props.me && (
                         <MeContext.Provider value={this.props.me}>
                             <MessagesContext.Provider value={this.state.messages}>

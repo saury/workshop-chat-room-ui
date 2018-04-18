@@ -2,17 +2,6 @@ import * as React from 'react';
 
 import { Me } from 'modules/authentication';
 import { messageLoader } from 'modules/chat';
-import { styled } from 'modules/core/styles';
-
-const Button = styled.button`
-    display: inline-block;
-    background: limegreen;
-    padding: 0 12px;
-    font-size: 16px;
-    color: #fff;
-    border: 0;
-    min-width: 80px;
-`;
 
 export interface Props {
     me: Me;
@@ -73,7 +62,7 @@ class Editor extends React.Component<Props, any> {
                         <div contentEditable onInput={this.onInputHandler} onKeyDown={this.onKeyDownHandler} />
                     </div>
                 </div>
-                <Button>Send</Button>
+                <button>Send</button>
             </div>
         );
     }
