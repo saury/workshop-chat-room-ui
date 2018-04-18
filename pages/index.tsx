@@ -60,7 +60,7 @@ class Index extends Component<{ messages: Messages[]; me?: Me }, { messages: Mes
                         <title>Wii chat</title>
                     </Head>
                     <ThemeBtn
-                        theme={this.state.theme}
+                        themeType={this.state.theme}
                         onClick={() => {
                             this.setState({
                                 theme: this.state.theme === 'normal' ? 'night' : 'normal',

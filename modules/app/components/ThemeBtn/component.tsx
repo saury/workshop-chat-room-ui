@@ -1,31 +1,24 @@
 import * as React from 'react';
 
-interface Props {
+export interface Props {
     onClick: () => void;
+    themeType: string;
     className?: string;
-    theme?: string;
 }
 
-export class Component extends React.Component<Props> {
+export class ThemeBtn extends React.Component<Props> {
+    constructor(props) {
+        super(props);
+    }
+
     public onClickHandler = () => {
-        this.props.onClick();
+        this.props.onClick!();
     };
+
     public render() {
         return (
-            <div
-                style={{
-                    color: this.props.theme === 'night' ? '#fff' : '#000',
-                    fontSize: '24px',
-                    padding: '4px 16px',
-                    left: '0',
-                    position: 'absolute',
-                    top: '0',
-                    zIndex: '99',
-                    opacity: 0.4,
-                }}
-                onClick={this.onClickHandler}
-            >
-                {this.props.theme !== 'night' ? '㊰' : '㊐'}
+            <div className={this.props.className} onClick={this.onClickHandler}>
+                {this.props.themeType !== 'night' ? '㊰' : '㊐'}
             </div>
         );
     }

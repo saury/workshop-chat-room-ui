@@ -1,1 +1,1 @@
-export { Component as ThemeBtn } from './component';
+export { ThemeBtn } from './styled';
